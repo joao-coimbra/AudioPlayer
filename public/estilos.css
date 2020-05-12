@@ -1,0 +1,36 @@
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+.titulo{
+    font-size: 20px;
+    color: #21dadb;
+}
+
+.containerPlayer{
+    width: 300px;
+    height: 300px;
+    border: 1px solid #525252;
+    border-radius: 5px;
+    text-align: center;
+    background : rgb(75, 75, 75);
+}
+
+.botaoPlayer {
+    text-decoration: none;
+    background-color: #333333;
+    display: block;
+    padding: 15px;
+    color: #ffffff;
+}
+.barraProgresso {
+    width: 90%;
+}
+.tempo {
+    font-size: 15px;
+    color: #21dadb;
+}
+.volume {
+    width: 90%;
+}
