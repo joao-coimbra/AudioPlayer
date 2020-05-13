@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap');
+
+/* {
+    margin: 0 auto;
+    box-sizing: border-box;
+}*/
+
+body {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+nav {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar {
+
+    background-color: #777777;
+
+    position: relative;
+
+    display:flex;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    -ms-flex-align:center;
+    align-items:center;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+
+    padding: 0 10%;
+}
+
+nav h1 {
+    font-size: 30px;
+    font-family: 'Blinker', sans-serif;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 0.1rem 0;
+    text-decoration: none;
+}
+
+.bars, .plus {
+    color: white;
+}
+
+.bars {
+    font-size: 30px;
+}
+
+main {
+    margin-top: 100px;
+}
+
+main > div {
+    display: flex;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    -ms-flex-align:center;
+    align-items:center;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+
+    padding: 2% 10%;
+}
+
+.album img, .lastalbum, button {
+    width: 40vh;
+    height: 40vh;
+}
+
+.album img {
+    object-fit: cover;  
+}
+
+.lastalbum {
+    background-color: #C4C4C4;
+}
+
+.lastalbum button{
+    border: none;
+    background: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.album button {
+    border: none;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.lastalbum p {
+    position: relative;
+    margin-top: -5%;
+    font-size: 20px;
+}
+
+.album p {
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    width: 40vh;
+    padding: 2% 0;
+    margin-top: 7.7%;
+    background-color: #FFFFFF50;
+}
