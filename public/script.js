@@ -3,7 +3,7 @@ var audio;
 
 //Página carregada
 
-setInterval(loadAudio(), 1000);
+setInterval(loadAudio(), 100);
 
 function loadAudio(){
     audio = document.getElementById("audio");
@@ -73,10 +73,11 @@ function openAlbum(num) {
     switch (num) {
         case 1:
             document.getElementById("albumname").innerHTML = "Rock Nacional";
-            document.getElementById("p1").innerHTML = "O dia que não terminou";
-            document.getElementById("p2").innerHTML = "Olhos certos";
-            document.getElementById("p3").innerHTML = "Outro lugar";
-            document.getElementById("p4").innerHTML = "Um cara de sorte";
+            document.getElementById("p1").innerHTML = "Eduardo e Mônica";
+            document.getElementById("p2").innerHTML = "Equalize";
+            document.getElementById("p3").innerHTML = "faroeste Caboclos";
+            document.getElementById("p4").innerHTML = "Music name";
+            document.getElementById("p5").innerHTML = "Music name";
             break;
 
         case 2:
@@ -116,7 +117,7 @@ function resetNames() {
 function playMusic(num) {
 
     document.querySelector(".wrap").style.display = "none";
-    document.querySelector("main#audio-player").style.display = "block";
+    document.querySelector("main#audio-player").style.visibility = "visible";
     document.querySelector("main#first-page").style.display = "none";
     document.querySelector(".navbar h1").style.display = "none";
     document.querySelector("#arrow-left").style.display = "block";
@@ -148,7 +149,7 @@ function playMusic(num) {
         case "Rock":
             switch (num) {
                 case 1:
-                    aud.src = 'public/audio/every_you.mp3';
+                    aud.src = 'public/audio/rock/every_you.mp3';
                     break;
 
                 case 2:
@@ -172,7 +173,7 @@ function playMusic(num) {
 
 function returnFirstPage() {
     document.querySelector("main#first-page").style.display = "block";
-    document.querySelector("main#audio-player").style.display = "none";
+    document.querySelector("main#audio-player").style.visibility = "hidden";
     document.querySelector(".navbar h1").style.display = "block";
     document.querySelector("#arrow-left").style.display = "none";
     document.querySelector("main").style.marginTop = "100px";
@@ -180,5 +181,9 @@ function returnFirstPage() {
 
     resetNames();
     let audio = document.querySelector("source#player");
-    audio.src = "";
+    audio.src = "default.mp3";
+}
+
+function ativarTd() {
+    document.querySelector("#td1").style.BackGroundColor = "black";
 }
