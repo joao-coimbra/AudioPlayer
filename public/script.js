@@ -64,6 +64,21 @@ function secToStr( seg ) {
     return horas+":"+minutos+":"+segundos;
 }
 
+function closePopUp() {
+    document.querySelector(".wrap").style.display = "none";
+    document.querySelector("nav").style.position = "fixed";
+    document.querySelector("main#first-page").style.marginTop = "100px";
+
+    document.getElementById("td1").style.display = "flex";
+    document.getElementById("td2").style.display = "flex";
+    document.getElementById("td3").style.display = "flex";
+    document.getElementById("td4").style.display = "flex";
+    document.getElementById("td5").style.display = "flex";
+    document.getElementById("td6").style.display = "flex";
+
+
+}
+
 function openAlbum(num) {
 
     document.querySelector(".wrap").style.display = "block";
@@ -76,48 +91,60 @@ function openAlbum(num) {
             document.getElementById("p1").innerHTML = "Eduardo e Mônica";
             document.getElementById("p2").innerHTML = "Equalize";
             document.getElementById("p3").innerHTML = "faroeste Caboclos";
-            document.getElementById("p4").innerHTML = "Music name";
-            document.getElementById("p5").innerHTML = "Music name";
+            document.getElementById("td4").style.display = "none";
+            document.getElementById("td5").style.display = "none";
+            document.getElementById("td6").style.display = "none";
             break;
 
         case 2:
             document.getElementById("albumname").innerHTML = "Hit Nacional";
-            document.getElementById("p1").innerHTML = "O dia que não terminou";
-            document.getElementById("p2").innerHTML = "Olhos certos";
-            document.getElementById("p3").innerHTML = "Outro lugar";
-            document.getElementById("p4").innerHTML = "Um cara de sorte";
+            document.getElementById("p1").innerHTML = "Chão de giz";
+            document.getElementById("p2").innerHTML = "Dar-te-ei";
+            document.getElementById("p3").innerHTML = "Favela";
+            document.getElementById("p4").innerHTML = "Pesadão";
+            document.getElementById("td5").style.display = "none";
+            document.getElementById("td6").style.display = "none";
             break;
-        
+
         case 3:
             document.getElementById("albumname").innerHTML = "Rock";
             document.getElementById("p1").innerHTML = "Every you";
-            document.getElementById("p2").innerHTML = "Music name";
-            document.getElementById("p3").innerHTML = "Music name";
-            document.getElementById("p4").innerHTML = "Music name";
+            document.getElementById("p2").innerHTML = "Bohemian Rhapsody";
+            document.getElementById("p3").innerHTML = "Lonely Day";
+            document.getElementById("p4").innerHTML = "Welcome to the jungle";
+            document.getElementById("p5").innerHTML = "Heat of the moment";
+            document.getElementById("p6").innerHTML = "You shook me all night long";
             break;
+
+        case 4:
+            document.getElementById("albumname").innerHTML = "Pop";
+            document.getElementById("p1").innerHTML = "Bad";
+            document.getElementById("p2").innerHTML = "Billie Jean";
+            document.getElementById("p3").innerHTML = "Old town road";
+            document.getElementById("p4").innerHTML = "They Don't care about us";
+            document.getElementById("p5").innerHTML = "Thriller";
+            document.getElementById("td6").style.display = "none";
+            break;
+
+        case 5:
+            document.getElementById("albumname").innerHTML = "Mpb";
+            document.getElementById("p1").innerHTML = "Era um Garoto";
+            document.getElementById("p2").innerHTML = "Por Enquanto";
+            document.getElementById("p3").innerHTML = "Pra Você Guardei o Amor";
+            document.getElementById("p4").innerHTML = "Velha Infância";
+            document.getElementById("td5").style.display = "none";
+            document.getElementById("td6").style.display = "none";
+            break;
+
         default:
-            resetNames();
+            break;
     }
 }
 
-function closePopUp() {
-    document.querySelector(".wrap").style.display = "none";
-    document.querySelector("nav").style.position = "fixed";
-    document.querySelector("main#first-page").style.marginTop = "100px";
-}
-
-function resetNames() {
-    document.getElementById("albumname").innerHTML = "Album name";
-    document.getElementById("p1").innerHTML = "Music name";
-    document.getElementById("p2").innerHTML = "Music name";
-    document.getElementById("p3").innerHTML = "Music name";
-    document.getElementById("p4").innerHTML = "Music name";
-}
-
-function playMusic(num) {
+function changeMusic(num) {
 
     document.querySelector(".wrap").style.display = "none";
-    document.querySelector("main#audio-player").style.visibility = "visible";
+    document.querySelector("main#audio-player").style.display = "block";
     document.querySelector("main#first-page").style.display = "none";
     document.querySelector(".navbar h1").style.display = "none";
     document.querySelector("#arrow-left").style.display = "block";
@@ -130,22 +157,60 @@ function playMusic(num) {
         case "Rock Nacional":
             switch (num) {
                 case 1:
+                    aud.src = 'public/audio/rocknacional/eduardo_e_monica.mp3';
                     break;
                 
                 case 2:
+                    aud.src = 'public/audio/rocknacional/equalize.mp3';
                     break;
 
                 case 3:
+                    aud.src = 'public/audio/rocknacional/faroeste_caboclo.mp3';
                     break;
 
                 case 4:
+                    break;
+                        
+                case 5:
+                    break;
+                        
+                case 6:
                     break;
 
                 default:
                     break;
                 }
             break;
-            
+
+        case "Hit Nacional":
+            switch (num) {
+                case 1:
+                    aud.src = 'public/audio/hitnacional/chao_de_giz.mp3';
+                    break;
+
+                case 2:
+                    aud.src = 'public/audio/hitnacional/dar_te_ei.mp3';
+                    break;
+
+                case 3:
+                    aud.src = 'public/audio/hitnacional/favela.mp3';
+                    break;
+
+                case 4:
+                    aud.src = 'public/audio/hitnacional/pesadao.mp3';
+                    break;
+
+                case 5:
+                    break;
+
+                case 6:
+                    break;
+
+                default:
+                    break;
+            }
+            break;  
+
         case "Rock":
             switch (num) {
                 case 1:
@@ -153,18 +218,89 @@ function playMusic(num) {
                     break;
 
                 case 2:
+                    aud.src = 'public/audio/rock/bohemian_rhapsody.mp3';
                     break;
 
                 case 3:
+                    aud.src = 'public/audio/rock/lonely_day.mp3';
                     break;
 
                 case 4:
+                    aud.src = 'public/audio/rock/welcome_to_the_jungle.mp3';
+                    break;
+
+                case 5:
+                    aud.src = "'public/audio/rock/heat_of_the_moment.mp3'";
+                    break;
+
+                case 6:
+                    aud.src = 'public/audio/rock/you_shook_me_all_night_long.mp3';
                     break;
 
                 default:
                     break;
             }
             break;
+
+        case "Pop":
+            switch (num) {
+                case 1:
+                    aud.src = 'public/audio/pop/bad.mp3';
+                    break;
+                
+                case 2:
+                    aud.src = 'public/audio/pop/billie_jean.mp3';
+                    break;
+
+                case 3:
+                    aud.src = 'public/audio/pop/old_town_road.mp3';
+                    break;
+
+                case 4:
+                    aud.src = 'public/audio/pop/they_dont_care_about_us.mp3';
+                    break;
+                        
+                case 5:
+                    aud.src = 'public/audio/pop/thriller.mp3';
+                    break;
+                        
+                case 6:
+                    break;
+
+                default:
+                    break;
+                }
+            break;
+
+        case "Mpb":
+            switch (num) {
+                case 1:
+                    aud.src = 'public/audio/mpb/era_um_garoto.mp3';
+                    break;
+                
+                case 2:
+                    aud.src = 'public/audio/mpb/por_enquanto.mp3';
+                    break;
+
+                case 3:
+                    aud.src = 'public/audio/mpb/pra_voce_guardei_o_amor.mp3';
+                    break;
+
+                case 4:
+                    aud.src = 'public/audio/mpb/velha_infancia.mp3';
+                    break;
+                        
+                case 5:
+                    break;
+                        
+                case 6:
+                    break;
+
+                default:
+                    break;
+                }
+            break;
+
         default:
             break;
         }
@@ -173,7 +309,7 @@ function playMusic(num) {
 
 function returnFirstPage() {
     document.querySelector("main#first-page").style.display = "block";
-    document.querySelector("main#audio-player").style.visibility = "hidden";
+    document.querySelector("main#audio-player").style.display = "none";
     document.querySelector(".navbar h1").style.display = "block";
     document.querySelector("#arrow-left").style.display = "none";
     document.querySelector("main").style.marginTop = "100px";

@@ -21,32 +21,41 @@
         <div class="box">
             <span onclick="closePopUp()"><i class="fa fa-times fa-xs"></i></span>
             <h2 id="albumname">Album name</h2>
-            <hr>
             <div class="table">
                 <table>
                         <tr>
                             <td id="td1">
-                                <p id="p1">Music name</p><i onclick="playMusic(1)" onmouseout="ativarTd(1)" id="pl1" class="fa fa-play"></i>
+                                <p id="p1">Music name</p><i onclick="changeMusic(1); closePopUp()" onmouseout="ativarTd(1)" id="pl1" class="fa fa-play"></i>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p id="p2">Music name</p><i onclick="playMusic(2)" id="pl2" class="fa fa-play"></i>
+                            <td id="td2">
+                                <p id="p2">Music name</p><i onclick="changeMusic(2); closePopUp()" id="pl2" class="fa fa-play"></i>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p id="p3">Music name</p><i onclick="playMusic(3)" id="pl3" class="fa fa-play"></i>
+                            <td id="td3">
+                                <p id="p3">Music name</p><i onclick="changeMusic(3); closePopUp()" id="pl3" class="fa fa-play"></i>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p id="p4">Music name</p><i onclick="playMusic(4)" id="pl4" class="fa fa-play"></i>
+                            <td id="td4">
+                                <p id="p4">Music name</p><i onclick="changeMusic(4); closePopUp()" id="pl4" class="fa fa-play"></i>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                <p id="p5">Music name</p><i onclick="playMusic(5)" id="pl5" class="fa fa-play"></i>
+                            <td id="td5">
+                                <p id="p5">Music name</p><i onclick="changeMusic(5); closePopUp()" id="pl5" class="fa fa-play"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="td6">
+                                <p id="p6">Music name</p><i onclick="changeMusic(6); closePopUp()" id="pl6" class="fa fa-play"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="tdend">
+                                <p id="p7">Save new music</p><input type="file" name="" id="inputfile"><label for="inputfile"><i onclick="closePopUp()" id="pl6" class="fa fa-plus"></i></label>
                             </td>
                         </tr>
                 </table>

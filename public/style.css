@@ -96,6 +96,10 @@ body {
     opacity: 0.6;
 }
 
+#inputfile {
+    display: none;
+}
+
 nav {
     overflow: hidden;
     background-color: rgb(241, 117, 0);
