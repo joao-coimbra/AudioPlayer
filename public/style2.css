@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@600&display=swap');
+
+* {
+    font-family: 'Blinker', sans-serif;
+}
+
+body {
+    margin: 0 auto;
+}
+
+nav {
+    overflow: hidden;
+    background-color: rgb(241, 117, 0);
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+    z-index: 1;
+
+    transition: all 3000ms;
+}
+
+.navbar {
+
+    background-color: rgb(241,117,0);
+
+    position: relative;
+    height: 80px;
+
+    display:flex;
+    -ms-flex-wrap:wrap;
+    flex-wrap:wrap;
+    -ms-flex-align:center;
+    align-items:center;
+    -ms-flex-pack:justify;
+    justify-content:space-between;
+
+    padding: 0 10%;
+}
+
+nav h1 {
+    font-size: 30px;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+nav i {
+    cursor: pointer;
+}
+
+.bars, .arrow-left {
+    color: white;
+}
+
+.plus {
+    color: #C4C4C4;
+}
+
+.bars {
+    font-size: 30px;
+    transition: all 500ms;
+}
+
+.arrow-left {
+    font-size: 40px;
+}
+
+.arrow-left:hover {
+    transform: rotate(-360deg);
+    
+    transition: all 1000ms;
+
+}
+
+.bars:hover {
+    transform: rotate(-90deg);
+
+    transition: all 500ms;
+}
+
+i {
+    color: white;
+}
+
+main {
+    width: 100%;
+}
+
+main > div > div:first-child {
+    height: 100vh;
+    background-color: black;
+}
+
+div.audio > div:first-child {
+    height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.audio > div.audio-player {
+    height: 20vh;
+
+    background-color: black;
+
+
+    justify-items: center;
+    align-items: center;
+}
+
+
+div.audio > div:first-child img {
+
+    position: relative;
+
+    width: 40vh;
+    height: 40vh;
+
+    object-fit: cover;
+}
+
+#barra_progresso {
+    width: 100%;
+}
+
+#pause {
+    display: none;
+}
+
+#vol {
+    width: 7.5vw;
+    position: absolute;
+    left: 47%;
+    bottom: 50%;
+
+    visibility: hidden;
+
+    transform: rotate(-90deg);
+
+}
+
+.progressbar {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: -2%;
+}
+
+#barra_progresso {
+
+    width: 80%;
+}
+
+span {
+
+    margin-left: 2%;
+    color: white;
+}
+
+table {
+    margin-top: 5%;
+}
+
+.musics table i {
+    color: black;
+}
+
+.musics table i {
+    cursor: pointer;
+}
+
+.musics table i:hover {
+    color: gray;
+    opacity: 0.6;
+}
+
+::-webkit-scrollbar {
+    width: 0%;
+    height: 0%;
+}

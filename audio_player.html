@@ -1,57 +1,114 @@
 <html>
+
 <head>
     <title>Audio Player</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
     <!-- Folhas de Estilo -->
-    <link rel="stylesheet" type="text/css" href="public/style.css">
+    <link rel="stylesheet" type="text/css" href="public/style2.css">
     <!-- Script JS -->
     <script src="public/script.js"></script>
 
 </head>
+
 <body onload="onLoadPage()">
-    <!--Container Principal -->
-    <section class="containerPlayer">
-        <!--Controle de Áudio -->
-        <audio id="audio" preload="auto">
-            <source src="public/audio/every_you.mp3" type="audio/mp3">
-        </audio>
-        <p class="titulo">Player de Música</p>
+
+    <nav>
+        <div class="navbar">
+            <a href="index.html"><i onclick="returnFirstPage()" class="fa fa-long-arrow-left arrow-left"></i></a>
+            <i class="fa fa-bars bars"></i>
+        </div>
+    </nav>
+
+    <main>
+        <div class="row">
+            <div class="audio col-sm-9">
+                <div>
+                    <img src="public/img/album3.png" alt="">
+                </div>
+                <div class="audio-player">
+                    <audio id="audio" preload="auto">
+                        <source id="player" src="public/audio/rock/every_you.mp3" type="audio/mp3">
+                    </audio>
+
+                    <div class="progressbar">
+                        <!-- Barra de progresso da música -->
+                        <input id="barra_progresso" type="range" min="0.0" max="1" step="0.001"
+                                        onmousemove="volume(this)" onclick="volume(this)">
+                        <!-- Tempo -->
+                        <span id="tempo_atual" class="tempo">00:00:00</span> <span> | </span>
+                        <span id="tempo_total" class="tempo">00:00:00</span>
+                    </div>
+
+                    <div>
+                        <table style="text-align: center; width: 100%;">
+                            <tr class="row">
+                                <td class="col-sm" onclick="stop()"> <a href="#" class="botaoPlayer"><i
+                                            class="fa fa-undo fa-2x"></i></a></td>
+                                <td id="play" class="col-sm" onclick="alterarBtn(); play()"> <a href="#"
+                                        class="botaoPlayer"><i class="fa fa-play fa-2x"></i></a></td>
+                                <td id="pause" class="col-sm" onclick="alterarBtn(); pause()"> <a href="#"
+                                        class="botaoPlayer"><i class="fa fa-pause fa-2x"></i></a></td>
+                                <td class="col-sm"> <a href="#" class="botaoPlayer" onclick="alterarVolume()"><i
+                                            class="fa fa-volume-up fa-2x"></i></a>
+                                    <input id="vol" type="range" min="0.0" max="1" step="0.001" class="volume"
+                                        onmousemove="volume(this)">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="musics col-md-3">
+                <div class="table">
+                    <table>
+                            <tr>
+                                <td id="td1">
+                                    <p id="p1">Music name</p><a href="#"><i class="fa fa-play"></i></a></i>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="td2">
+                                    <p id="p2">Music name</p><a href="audio_player.html"><i onclick="changeMusic(2)" id="pl2" class="fa fa-play"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="td3">
+                                    <p id="p3">Music name</p><a href="audio_player.html"><i class="fa fa-play"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="td4">
+                                    <p id="p4">Music name</p><a href="audio_player.html"><i class="fa fa-play"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="td5">
+                                    <p id="p5">Music name</p><a href="audio_player.html"><i class="fa fa-play"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="td6">
+                                    <p id="p6">Music name</p><a href="audio_player.html"><i  class="fa fa-play"></i></a>
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <main id="audio-player row">
         
-        <div>
-            <!-- Barra de progresso da música -->
-            <progress id="barra_progresso" 
-                        class="barraProgresso" 
-                        max="0" value="0"></progress>
-            <br>
-            <!-- Tempo -->
-            <span id="tempo_atual" class="tempo">00:00:00</span> <span> / </span>
-            <span id="tempo_total" class="tempo">00:00:00</span>
-        </div>
-
-        <br>
-
-        <!-- Controles -->
-        <div>
-            <table style="text-align: center; width: 100%;">
-                <tr>
-                    <td> <a href="#" class="botaoPlayer" onclick="play()">Play</a></td>
-                    <td> <a href="#" class="botaoPlayer" onclick="pause()">Pause</a></td>
-                    <td> <a href="#" class="botaoPlayer" onclick="stop()">Stop</a></td>
-                </tr>
-            </table>
-        </div>
-
-
-        <br>
-        <!-- Range -->
-        <div>
-            <input type="range" 
-                        min="0.0" 
-                        max="1" 
-                        step="0.001" 
-                        class="volume" 
-                        onmousemove="volume(this)">
-        </div>
-    </section>
+    </main> -->
 </body>
 
 </html>

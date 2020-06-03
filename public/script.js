@@ -2,13 +2,12 @@
 var audio;
 
 //Página carregada
-
-setInterval(loadAudio(), 100);
-
-function loadAudio(){
+function onLoadPage() {
+    //Acessar controle Audio via JavaScript
     audio = document.getElementById("audio");
 
     audio.addEventListener("play", onPlayMusic, false);
+    audio.addEventListener("timeupdate", onAtualizarTempo, false);
 }
 
 //Controlar Volume
@@ -29,6 +28,9 @@ function pause(){
 function stop(){
     audio.pause();
     audio.currentTime = 0;
+
+    setInterval(play()
+    ,100);
 }
 /**
 * Evento - Quando tocar a música – Carregar Barra e Tempo Atual/Total
@@ -64,9 +66,8 @@ function secToStr( seg ) {
     return horas+":"+minutos+":"+segundos;
 }
 
-function closePopUp() {
-    document.querySelector(".wrap").style.display = "none";
-    document.querySelector("nav").style.position = "fixed";
+function closePopUp(bool) {
+    document.querySelector(".wrap").style.visibility = "hidden";
     document.querySelector("main#first-page").style.marginTop = "100px";
 
     document.getElementById("td1").style.display = "flex";
@@ -76,12 +77,14 @@ function closePopUp() {
     document.getElementById("td5").style.display = "flex";
     document.getElementById("td6").style.display = "flex";
 
-
+    if (bool == true) {
+        document.querySelector("nav").style.position = "fixed";
+    }
 }
 
 function openAlbum(num) {
 
-    document.querySelector(".wrap").style.display = "block";
+    document.querySelector(".wrap").style.visibility = "visible";
     document.querySelector("nav").style.position = "relative";
     document.querySelector("main#first-page").style.marginTop = "20px";
 
@@ -142,13 +145,6 @@ function openAlbum(num) {
 }
 
 function changeMusic(num) {
-
-    document.querySelector(".wrap").style.display = "none";
-    document.querySelector("main#audio-player").style.display = "block";
-    document.querySelector("main#first-page").style.display = "none";
-    document.querySelector(".navbar h1").style.display = "none";
-    document.querySelector("#arrow-left").style.display = "block";
-    document.querySelector("nav").style.position = "absolute";
 
     let albumName = document.querySelector("#albumname").innerHTML;
     let aud = document.querySelector("source#player");
@@ -307,19 +303,34 @@ function changeMusic(num) {
 
 }
 
-function returnFirstPage() {
-    document.querySelector("main#first-page").style.display = "block";
-    document.querySelector("main#audio-player").style.display = "none";
-    document.querySelector(".navbar h1").style.display = "block";
-    document.querySelector("#arrow-left").style.display = "none";
-    document.querySelector("main").style.marginTop = "100px";
-    document.querySelector("nav").style.position = "fixed";
-
-    resetNames();
-    let audio = document.querySelector("source#player");
-    audio.src = "default.mp3";
-}
-
 function ativarTd() {
     document.querySelector("#td1").style.BackGroundColor = "black";
+}
+
+function alterarBtn(test) {
+
+    let play = document.getElementById("play");
+    let pause = document.getElementById("pause");
+
+    if (play.style.display == "none") {
+        play.style.display = "block";
+        pause.style.display = "none";
+    }
+    else {
+        play.style.display = "none";
+        pause.style.display = "block";
+    }
+
+}
+
+function alterarVolume() {
+
+    let vol = document.getElementById("vol");
+
+    if (vol.style.visibility == "hidden") {
+        vol.style.visibility = "visible";
+    }
+    else {
+        vol.style.visibility = "hidden";
+    }
 }
